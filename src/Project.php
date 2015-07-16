@@ -48,7 +48,7 @@ class Project extends ApiResource
         if (isset($response['projects'])) {
             $projects = array();
             foreach ($response['projects'] as $project) {
-                $projects[] = new ProjectEntity($response);
+                $projects[] = new ProjectEntity($project);
             }
             return $projects;
         } else {
