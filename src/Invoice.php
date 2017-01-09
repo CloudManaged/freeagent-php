@@ -106,4 +106,27 @@ class Invoice extends ApiResource
             throw new InvoiceError($e);
         }
     }
+
+    /**
+     * Get a single invoice
+     * 
+     * @see https://dev.freeagent.com/docs/invoices#get-a-single-invoice
+     * @param $invoiceId
+     * 
+     * @return mixed
+     * @throws InvoiceError
+     */
+    public function getASingleInvoice($invoiceId)
+    {
+        try {
+
+            $url = $this->getInvoiceUrl();
+            $url = $url . '/' . $invoiceId;
+            $response = $this->retrieve($url, []);
+            return $response['invoice'];
+
+        } catch (ApiError $e) {
+            throw new InvoiceError($e);
+        }
+    }
 }
