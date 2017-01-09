@@ -2,6 +2,9 @@
 
 namespace CloudManaged\FreeAgent\Entities\Company;
 
+use CloudManaged\FreeAgent\Entities\EntityInterface;
+use CloudManaged\FreeAgent\Entities\AbstractEntity;
+
 /**
  * Class Company
  *
