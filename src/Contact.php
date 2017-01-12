@@ -56,4 +56,27 @@ class Contact extends ApiResource
             throw new ContactError($e);
         }
     }
+
+    /**
+     * Get a single contact
+     * 
+     * @see https://dev.freeagent.com/docs/contacts#get-a-single-contact
+     * @param $contactId
+     * 
+     * @return mixed
+     * @throws ContactError
+     */
+    public function getASingleContact($contactId)
+    {
+        try {
+
+            $url = $this->getContactsUrl();
+            $url = $url . '/' . $contactId;
+            $response = $this->retrieve($url, []);
+            return $response['contact'];
+
+        } catch (ApiError $e) {
+            throw new ContactError($e);
+        }
+    }
 }
